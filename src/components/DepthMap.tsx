@@ -25,7 +25,7 @@ export function FishingScene() {
 
         <path
           className="fishing-line-shadow"
-          d="M599 70 C602 137 599 207 587 270 C581 303 576 326 572 340"
+          d="M604 95 C604 148 599 212 587 270 C581 303 576 326 572 340"
           fill="none"
           stroke="#06120f"
           strokeOpacity=".42"
@@ -35,7 +35,7 @@ export function FishingScene() {
         />
         <path
           className="fishing-line-glint"
-          d="M599 70 C602 137 599 207 587 270 C581 303 576 326 572 340"
+          d="M604 95 C604 148 599 212 587 270 C581 303 576 326 572 340"
           fill="none"
           stroke="#edf4ef"
           strokeOpacity=".54"
