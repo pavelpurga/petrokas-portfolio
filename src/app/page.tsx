@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Check, Compass, Database, Gauge, Radio, Waves } from "lucide-react";
 import { ContactCta } from "@/components/ContactCta";
-import { DepthMap } from "@/components/DepthMap";
+import { FishingScene } from "@/components/DepthMap";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
@@ -31,7 +31,7 @@ export default function Home() {
               <span><Check /> Поддержка после запуска</span>
             </div>
           </div>
-          <div className="hero-visual"><DepthMap /></div>
+          <div className="hero-visual"><FishingScene /></div>
         </section>
         <div className="hero-ticker" aria-hidden="true">
           <div className="ticker-track">

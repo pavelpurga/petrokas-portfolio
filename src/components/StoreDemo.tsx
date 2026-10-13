@@ -106,7 +106,21 @@ export function StoreDemo({ compact = false }: { compact?: boolean }) {
           return (
             <article className="product-card" key={product.name}>
               <div className="product-photo">
-                <Image src={product.image} alt={product.alt} fill sizes="(max-width: 720px) 100vw, 440px" />
+                <Image
+                  className="product-photo-backdrop"
+                  src={product.image}
+                  alt=""
+                  aria-hidden="true"
+                  fill
+                  sizes="(max-width: 720px) 100vw, 440px"
+                />
+                <Image
+                  className="product-photo-main"
+                  src={product.image}
+                  alt={product.alt}
+                  fill
+                  sizes="(max-width: 720px) 100vw, 440px"
+                />
                 <span className="product-badge">{product.badge}</span>
                 <button
                   className={selected ? "product-favourite selected" : "product-favourite"}
