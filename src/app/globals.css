@@ -68,17 +68,14 @@ img { max-width: 100%; height: auto; }
 .hero-proof span { display: flex; align-items: center; gap: 7px; }
 .hero-proof svg { width: 13px; color: var(--lime); }
 .hero-visual { width: min(100%, 610px); margin-inline: auto; position: relative; }
-.fishing-scene { position: relative; width: 100%; transform: rotate(1deg); }
-.fishing-scene svg { display: block; width: 100%; filter: drop-shadow(0 34px 50px rgba(0,0,0,.36)); }
-.water-lines { animation: water-drift 8s ease-in-out infinite alternate; }
+.fishing-scene { aspect-ratio: 640 / 560; position: relative; width: 100%; overflow: hidden; border-radius: 36px; background: #102a23; box-shadow: 0 34px 50px rgba(0,0,0,.36); transform: rotate(1deg); }
+.fishing-scene-image { object-fit: cover; object-position: center; }
+.fishing-scene-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,25,21,.1), transparent 48%, rgba(8,22,18,.14)), linear-gradient(90deg, rgba(8,25,21,.04), transparent 45%); pointer-events: none; }
+.fishing-scene-overlay { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 .fishing-line { stroke-dasharray: 4 4; animation: line-tension 5s ease-in-out infinite; }
 .fishing-float { transform-box: fill-box; transform-origin: 50% 100%; animation: bobber-bite 5s cubic-bezier(.45,.05,.3,1) infinite; }
 .bite-ripple { transform-box: fill-box; transform-origin: center; opacity: 0; animation: bite-ripple 5s ease-out infinite; }
 .bite-ripple-two { animation-delay: .32s; }
-.scene-reeds { animation: reeds-sway 4.6s ease-in-out infinite alternate; transform-origin: 580px 456px; }
-.fishing-scene-label { position: absolute; right: -14px; top: 14%; width: 174px; padding: 18px; border: 1px solid rgba(112,213,188,.28); background: rgba(13,25,22,.82); box-shadow: 0 18px 44px rgba(0,0,0,.2); backdrop-filter: blur(12px); }
-.fishing-scene-label span, .fishing-scene-label small { display: block; color: var(--muted); font-size: 8px; line-height: 1.45; letter-spacing: .1em; text-transform: uppercase; }
-.fishing-scene-label strong { display: block; margin: 8px 0 5px; color: var(--mint); font-family: var(--font-display); font-size: 22px; font-weight: 650; }
 .hero-ticker { height: 42px; overflow: hidden; border-block: 1px solid var(--line); color: rgba(244,244,236,.28); font-family: var(--font-display); font-size: 10px; letter-spacing: .16em; }
 .ticker-track { width: max-content; height: 100%; display: flex; animation: ticker 28s linear infinite; will-change: transform; }
 .ticker-group { min-width: 100vw; height: 100%; display: flex; flex-shrink: 0; align-items: center; justify-content: space-around; gap: 28px; padding-inline: 14px; }
@@ -295,7 +292,6 @@ img { max-width: 100%; height: auto; }
 .demo-page .store-footer-line { min-height: 44px; padding-inline: 22px; }
 
 @keyframes ticker { to { transform: translateX(-50%); } }
-@keyframes water-drift { from { transform: translateX(-4px); } to { transform: translateX(5px); } }
 @keyframes line-tension { 0%, 54%, 100% { stroke-dashoffset: 0; } 68%, 78% { stroke-dashoffset: -12; } }
 @keyframes bobber-bite {
   0%, 12%, 24%, 42%, 54%, 100% { transform: translateY(0) rotate(0); }
@@ -313,7 +309,6 @@ img { max-width: 100%; height: auto; }
   61% { opacity: .62; }
   78% { opacity: 0; transform: scale(2.3); }
 }
-@keyframes reeds-sway { from { transform: rotate(-1deg); } to { transform: rotate(1.6deg); } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -369,8 +364,6 @@ img { max-width: 100%; height: auto; }
   .hero-actions .text-link { align-self: flex-start; }
   .hero-proof { flex-direction: column; gap: 10px; }
   .hero-visual { width: 104%; margin-left: -2%; }
-  .fishing-scene-label { right: 1%; top: 10%; width: 146px; padding: 14px; }
-  .fishing-scene-label strong { font-size: 18px; }
   .section-heading { align-items: start; flex-direction: column; gap: 24px; margin-bottom: 36px; }
   .about-columns { grid-template-columns: 1fr; gap: 12px; }
   .services-grid { grid-template-columns: 1fr; gap: 10px; }
