@@ -72,10 +72,14 @@ img { max-width: 100%; height: auto; }
 .fishing-scene-image { object-fit: cover; object-position: center; }
 .fishing-scene-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,25,21,.1), transparent 48%, rgba(8,22,18,.14)), linear-gradient(90deg, rgba(8,25,21,.04), transparent 45%); pointer-events: none; }
 .fishing-scene-overlay { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
-.fishing-line { stroke-dasharray: 4 4; animation: line-tension 5s ease-in-out infinite; }
-.fishing-float { transform-box: fill-box; transform-origin: 50% 100%; animation: bobber-bite 5s cubic-bezier(.45,.05,.3,1) infinite; }
-.bite-ripple { transform-box: fill-box; transform-origin: center; opacity: 0; animation: bite-ripple 5s ease-out infinite; }
-.bite-ripple-two { animation-delay: .32s; }
+.fishing-line-shadow { filter: blur(.18px); }
+.fishing-line-glint { animation: monofilament-glint 4.8s ease-in-out infinite; }
+.fishing-float { transform-box: fill-box; transform-origin: 50% 100%; animation: bobber-bite 5.4s cubic-bezier(.42,.05,.25,1) infinite; }
+.float-water-dimple { animation: water-dimple 5.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.float-vibration { opacity: .24; animation: surface-vibration 2.1s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+.bite-ripple { transform-box: fill-box; transform-origin: center; opacity: 0; animation: bite-ripple 5.4s ease-out infinite; }
+.bite-ripple-two { animation-delay: .16s; }
+.bite-ripple-three { animation-delay: .32s; }
 .hero-ticker { height: 42px; overflow: hidden; border-block: 1px solid var(--line); color: rgba(244,244,236,.28); font-family: var(--font-display); font-size: 10px; letter-spacing: .16em; }
 .ticker-track { width: max-content; height: 100%; display: flex; animation: ticker 28s linear infinite; will-change: transform; }
 .ticker-group { min-width: 100vw; height: 100%; display: flex; flex-shrink: 0; align-items: center; justify-content: space-around; gap: 28px; padding-inline: 14px; }
@@ -292,23 +296,26 @@ img { max-width: 100%; height: auto; }
 .demo-page .store-footer-line { min-height: 44px; padding-inline: 22px; }
 
 @keyframes ticker { to { transform: translateX(-50%); } }
-@keyframes line-tension { 0%, 54%, 100% { stroke-dashoffset: 0; } 68%, 78% { stroke-dashoffset: -12; } }
+@keyframes monofilament-glint { 0%, 100% { stroke-opacity: .28; } 42% { stroke-opacity: .58; } 68% { stroke-opacity: .4; } }
 @keyframes bobber-bite {
-  0%, 12%, 24%, 42%, 54%, 100% { transform: translateY(0) rotate(0); }
-  6%, 31% { transform: translateY(-3px) rotate(-1.5deg); }
-  18%, 37% { transform: translateY(2px) rotate(1deg); }
-  65% { transform: translateY(5px) rotate(2deg); }
-  70% { transform: translateY(18px) rotate(-2deg); }
-  74% { transform: translateY(9px) rotate(1deg); }
-  79% { transform: translateY(22px) rotate(-1deg); }
-  86% { transform: translateY(-2px) rotate(1deg); }
-  92% { transform: translateY(1px) rotate(0); }
+  0%, 12%, 25%, 40%, 52%, 100% { transform: translateY(0) rotate(0); }
+  6%, 31% { transform: translateY(-1px) rotate(-.6deg); }
+  18%, 36% { transform: translateY(1px) rotate(.7deg); }
+  59% { transform: translateY(3px) rotate(1deg); }
+  63% { transform: translateY(-1px) rotate(-1deg); }
+  68% { transform: translateY(14px) rotate(.8deg); }
+  73% { transform: translateY(17px) rotate(-.5deg); }
+  78% { transform: translateY(6px) rotate(.8deg); }
+  84% { transform: translateY(-2px) rotate(-.6deg); }
+  90% { transform: translateY(1px) rotate(.3deg); }
 }
 @keyframes bite-ripple {
-  0%, 52%, 100% { opacity: 0; transform: scale(.45); }
-  61% { opacity: .62; }
-  78% { opacity: 0; transform: scale(2.3); }
+  0%, 57%, 100% { opacity: 0; transform: scale(.35); }
+  64% { opacity: .56; }
+  83% { opacity: 0; transform: scale(2.7); }
 }
+@keyframes surface-vibration { 0% { opacity: 0; transform: scale(.65); } 30% { opacity: .3; } 100% { opacity: 0; transform: scale(1.35); } }
+@keyframes water-dimple { 0%, 52%, 88%, 100% { transform: scale(1); opacity: .75; } 68%, 76% { transform: scale(.62); opacity: .95; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
